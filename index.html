@@ -1,50 +1,103 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
 <title>Medicampus</title>
 
 <style>
 
-/* ================= RESET ================= */
+/* =======================================================
+   RESET
+======================================================= */
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
-body{
-  font-family:Arial,sans-serif;
-  overflow:hidden;
-  background:
-  linear-gradient(135deg,#050816,#090018,#130022);
-  color:white;
-  height:100vh;
+html{
+  scroll-behavior:smooth;
 }
 
-/* ================= FONDO ================= */
+body{
+
+  font-family:Arial,sans-serif;
+
+  background:
+  linear-gradient(
+  135deg,
+  #050816,
+  #090018,
+  #130022
+  );
+
+  color:white;
+
+  overflow:hidden;
+
+  height:100vh;
+
+}
+
+/* =======================================================
+   FONDO
+======================================================= */
+
 .bg{
-  position:absolute;
+
+  position:fixed;
+
   inset:0;
 
-  background:
-  radial-gradient(circle at 20% 20%, rgba(255,0,140,.18), transparent 30%),
-  radial-gradient(circle at 80% 30%, rgba(0,255,255,.12), transparent 30%),
-  radial-gradient(circle at 50% 80%, rgba(140,0,255,.15), transparent 30%);
-
   z-index:0;
+
+  background:
+  radial-gradient(
+  circle at 20% 20%,
+  rgba(255,0,140,.18),
+  transparent 30%
+  ),
+
+  radial-gradient(
+  circle at 80% 30%,
+  rgba(0,255,255,.12),
+  transparent 30%
+  ),
+
+  radial-gradient(
+  circle at 50% 80%,
+  rgba(140,0,255,.15),
+  transparent 30%
+  );
+
 }
 
-/* ================= PARTICULAS ================= */
+/* =======================================================
+   PARTICULAS
+======================================================= */
+
 .particle{
+
   position:absolute;
+
   width:4px;
   height:4px;
+
   border-radius:50%;
+
   background:#ff4fd8;
+
   opacity:.5;
+
   animation:float 8s linear infinite;
+
 }
 
 @keyframes float{
@@ -59,45 +112,83 @@ body{
 
 }
 
-/* ================= NAV ================= */
+/* =======================================================
+   NAV
+======================================================= */
+
 .nav{
-  position:relative;
-  z-index:100;
+
+  position:fixed;
+
+  top:0;
+  left:0;
+  right:0;
+
+  z-index:999;
 
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
 
   padding:25px 60px;
-}
-
-.logo{
-  font-size:48px;
-  font-weight:bold;
 
   background:
-  linear-gradient(90deg,#ff4fd8,#7d7dff,#00f0ff);
+  rgba(0,0,0,.2);
 
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  backdrop-filter:blur(15px);
 
-  letter-spacing:2px;
+  border-bottom:
+  1px solid rgba(255,255,255,.05);
+
 }
 
+/* =======================================================
+   LOGO
+======================================================= */
+
+.logo{
+
+  font-size:48px;
+
+  font-weight:bold;
+
+  letter-spacing:2px;
+
+  background:
+  linear-gradient(
+  90deg,
+  #ff4fd8,
+  #7d7dff,
+  #00f0ff
+  );
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
+
+}
+
+/* =======================================================
+   MENU
+======================================================= */
+
 .menu{
+
   display:flex;
-  gap:30px;
+
+  gap:35px;
+
 }
 
 .menu span{
 
-  color:white;
-
-  opacity:.8;
+  cursor:pointer;
 
   transition:.3s;
 
-  cursor:pointer;
+  opacity:.8;
 
   font-size:18px;
 
@@ -107,54 +198,89 @@ body{
 
   color:#ff4fd8;
 
+  opacity:1;
+
 }
 
-/* ================= PAGINAS ================= */
+/* =======================================================
+   PAGINAS
+======================================================= */
+
 .page{
 
   display:none;
 
   width:100%;
+
   height:100vh;
+
+  overflow-y:auto;
+
+  padding-top:130px;
 
 }
 
 .page.active{
 
-  display:flex;
+  display:block;
 
 }
 
-/* ================= HERO ================= */
+/* =======================================================
+   HERO
+======================================================= */
+
 .hero{
-  position:relative;
-  z-index:10;
 
   width:100%;
 
+  min-height:calc(100vh - 120px);
+
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
 
-  padding:0 80px;
+  gap:40px;
+
+  padding:40px 80px;
+
+  position:relative;
+
+  z-index:10;
+
 }
 
-/* ================= TEXTO ================= */
+/* =======================================================
+   TEXTO
+======================================================= */
+
 .hero-text{
+
   max-width:650px;
+
 }
 
 .hero-text h1{
+
   font-size:110px;
-  line-height:0.95;
+
+  line-height:.95;
+
 }
 
 .hero-text span{
 
   background:
-  linear-gradient(90deg,#ff4fd8,#ff9de6);
+  linear-gradient(
+  90deg,
+  #ff4fd8,
+  #ff9de6
+  );
 
   -webkit-background-clip:text;
+
   -webkit-text-fill-color:transparent;
 
   text-shadow:
@@ -174,7 +300,10 @@ body{
 
 }
 
-/* ================= BOTON ================= */
+/* =======================================================
+   BOTON
+======================================================= */
+
 .hero-btn{
 
   margin-top:35px;
@@ -182,14 +311,20 @@ body{
   padding:18px 40px;
 
   border:none;
+
   border-radius:18px;
 
   background:
-  linear-gradient(90deg,#ff4fd8,#ff7ce8);
+  linear-gradient(
+  90deg,
+  #ff4fd8,
+  #ff7ce8
+  );
 
   color:white;
 
   font-size:18px;
+
   font-weight:bold;
 
   cursor:pointer;
@@ -209,27 +344,42 @@ body{
 
 }
 
-/* ================= VISUAL ================= */
+/* =======================================================
+   VISUAL
+======================================================= */
+
 .visual{
 
-  position:relative;
-
   width:420px;
+
   height:420px;
 
   display:flex;
+
   justify-content:center;
+
   align-items:center;
 
 }
 
-/* ================= CARD 3D ================= */
+/* =======================================================
+   CARD 3D
+======================================================= */
+
 .card-3d{
 
   width:320px;
+
   height:380px;
 
   border-radius:35px;
+
+  overflow:hidden;
+
+  position:relative;
+
+  transform:
+  rotate(-10deg);
 
   background:
   linear-gradient(
@@ -238,22 +388,19 @@ body{
   rgba(255,255,255,.02)
   );
 
-  backdrop-filter:blur(20px);
-
   border:
-  1px solid rgba(255,255,255,.1);
+  1px solid rgba(255,255,255,.08);
+
+  backdrop-filter:blur(20px);
 
   box-shadow:
   0 0 60px rgba(255,0,140,.25);
 
-  transform:
-  rotate(-10deg);
-
-  overflow:hidden;
-
-  position:relative;
-
 }
+
+/* =======================================================
+   BRILLO
+======================================================= */
 
 .card-3d::before{
 
@@ -262,20 +409,41 @@ body{
   position:absolute;
 
   width:180px;
+
   height:500px;
 
   background:
-  rgba(255,255,255,.12);
+  rgba(255,255,255,.1);
 
   transform:
   rotate(25deg);
 
   left:-100px;
+
   top:-80px;
 
 }
 
-/* ================= MOCK PRODUCTS ================= */
+/* =======================================================
+   TITULO CARD
+======================================================= */
+
+.mock-title{
+
+  padding:25px;
+
+  font-size:22px;
+
+  font-weight:bold;
+
+  color:#ff9de6;
+
+}
+
+/* =======================================================
+   MOCK
+======================================================= */
+
 .mock-products{
 
   padding:30px;
@@ -307,22 +475,13 @@ body{
 
 }
 
-/* ================= TITULO CARD ================= */
-.mock-title{
+/* =======================================================
+   PRODUCTOS
+======================================================= */
 
-  padding:25px;
-
-  font-size:22px;
-  font-weight:bold;
-
-  color:#ff9de6;
-
-}
-
-/* ================= GRID PRODUCTOS ================= */
 .products-grid{
 
-  margin-top:40px;
+  margin-top:50px;
 
   display:grid;
 
@@ -333,18 +492,21 @@ body{
 
 }
 
-/* ================= PRODUCT CARD ================= */
+/* =======================================================
+   PRODUCT CARD
+======================================================= */
+
 .product-card{
+
+  overflow:hidden;
+
+  border-radius:25px;
 
   background:
   rgba(255,255,255,.05);
 
   border:
   1px solid rgba(255,255,255,.08);
-
-  border-radius:25px;
-
-  overflow:hidden;
 
   transition:.3s;
 
@@ -356,13 +518,14 @@ body{
   translateY(-8px);
 
   box-shadow:
-  0 0 40px rgba(255,0,140,.2);
+  0 0 40px rgba(255,0,140,.25);
 
 }
 
 .product-card img{
 
   width:100%;
+
   height:220px;
 
   object-fit:cover;
@@ -383,24 +546,37 @@ body{
 
 }
 
+.product-info p{
+
+  opacity:.7;
+
+  line-height:1.6;
+
+}
+
 .price{
 
   margin-top:15px;
 
   font-size:24px;
+
   font-weight:bold;
 
 }
 
-/* ================= UPLOAD ================= */
+/* =======================================================
+   UPLOAD
+======================================================= */
+
 .upload-box{
 
   margin-top:40px;
 
   display:flex;
+
   flex-direction:column;
 
-  gap:15px;
+  gap:18px;
 
   max-width:500px;
 
@@ -432,18 +608,35 @@ body{
   border-radius:15px;
 
   background:
-  linear-gradient(90deg,#ff4fd8,#ff7ce8);
+  linear-gradient(
+  90deg,
+  #ff4fd8,
+  #ff7ce8
+  );
 
   color:white;
 
   font-size:16px;
+
   font-weight:bold;
 
   cursor:pointer;
 
+  transition:.3s;
+
 }
 
-/* ================= RESPONSIVE ================= */
+.upload-box button:hover{
+
+  transform:
+  scale(1.03);
+
+}
+
+/* =======================================================
+   RESPONSIVE
+======================================================= */
+
 @media(max-width:900px){
 
   body{
@@ -451,134 +644,180 @@ body{
   }
 
   .hero{
+
     flex-direction:column;
+
     justify-content:center;
+
     text-align:center;
 
     padding:40px 20px;
 
-    gap:50px;
   }
 
   .hero-text h1{
+
     font-size:65px;
+
   }
 
   .hero-text p{
+
     font-size:18px;
+
   }
 
   .logo{
+
     font-size:32px;
+
   }
 
   .nav{
+
     flex-direction:column;
+
     gap:20px;
+
   }
 
   .visual{
+
     width:100%;
+
   }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- ================= FONDO ================= -->
+<!-- =======================================================
+     FONDO
+======================================================= -->
+
 <div class="bg"></div>
 
-<!-- ================= PARTICULAS ================= -->
-<div class="particle" style="left:10%;animation-duration:9s;"></div>
-<div class="particle" style="left:20%;animation-duration:7s;"></div>
-<div class="particle" style="left:35%;animation-duration:11s;"></div>
-<div class="particle" style="left:50%;animation-duration:6s;"></div>
-<div class="particle" style="left:65%;animation-duration:10s;"></div>
-<div class="particle" style="left:80%;animation-duration:8s;"></div>
+<!-- =======================================================
+     PARTICULAS
+======================================================= -->
 
-<!-- ================= NAV ================= -->
+<div class="particle"
+style="left:10%;animation-duration:9s;"></div>
+
+<div class="particle"
+style="left:20%;animation-duration:7s;"></div>
+
+<div class="particle"
+style="left:35%;animation-duration:11s;"></div>
+
+<div class="particle"
+style="left:50%;animation-duration:6s;"></div>
+
+<div class="particle"
+style="left:65%;animation-duration:10s;"></div>
+
+<div class="particle"
+style="left:80%;animation-duration:8s;"></div>
+
+<!-- =======================================================
+     NAV
+======================================================= -->
+
 <div class="nav">
 
-  <div class="logo">
-    Medicampus
-  </div>
+<div class="logo">
+Medicampus
+</div>
 
-  <div class="menu">
+<div class="menu">
 
-    <span onclick="showPage('inicio')">
-      Inicio
-    </span>
+<span onclick="showPage('inicio')">
+Inicio
+</span>
 
-    <span onclick="showPage('productos')">
-      Productos
-    </span>
+<span onclick="showPage('productos')">
+Productos
+</span>
 
-    <span onclick="showPage('subir')">
-      Subir
-    </span>
+<span onclick="showPage('subir')">
+Subir
+</span>
 
-    <span onclick="showPage('nosotros')">
-      Nosotros
-    </span>
-
-  </div>
+<span onclick="showPage('nosotros')">
+Nosotros
+</span>
 
 </div>
 
-<!-- ================= INICIO ================= -->
-<section id="inicio" class="page active hero">
+</div>
 
-  <div class="hero-text">
+<!-- =======================================================
+     INICIO
+======================================================= -->
 
-    <h1>
-      TU TIENDA
-      <br>
-      <span>ONLINE</span>
-    </h1>
+<section id="inicio"
+class="page active">
 
-    <p>
-      Diseño moderno, productos organizados y una experiencia
-      visual futurista para tu emprendimiento digital.
-    </p>
+<div class="hero">
 
-    <button
-    class="hero-btn"
-    onclick="showPage('productos')">
+<div class="hero-text">
 
-      Explorar
+<h1>
+TU TIENDA
+<br>
+<span>ONLINE</span>
+</h1>
 
-    </button>
+<p>
+Diseño moderno, productos organizados y
+una experiencia visual futurista.
+</p>
 
-  </div>
+<button
+class="hero-btn"
+onclick="showPage('productos')">
 
-  <div class="visual">
+Explorar
 
-    <div class="card-3d">
+</button>
 
-      <div class="mock-title">
-        Medicampus Store
-      </div>
+</div>
 
-      <div class="mock-products">
+<div class="visual">
 
-        <div class="mock-box"></div>
-        <div class="mock-box"></div>
-        <div class="mock-box"></div>
-        <div class="mock-box"></div>
+<div class="card-3d">
 
-      </div>
+<div class="mock-title">
+Medicampus Store
+</div>
 
-    </div>
+<div class="mock-products">
 
-  </div>
+<div class="mock-box"></div>
+<div class="mock-box"></div>
+<div class="mock-box"></div>
+<div class="mock-box"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
-<!-- ================= PRODUCTOS ================= -->
-<section id="productos" class="page">
+<!-- =======================================================
+     PRODUCTOS
+======================================================= -->
+
+<section id="productos"
+class="page">
 
 <div class="hero">
 
@@ -592,7 +831,32 @@ PRODUCTOS
 Explora todos los productos de Medicampus.
 </p>
 
-<div class="products-grid">
+<div class="products-grid"
+id="productsGrid">
+
+<!-- PRODUCTO -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
+
+<div class="product-info">
+
+<h3>AirPods Pro</h3>
+
+<p>
+Audio premium inalámbrico.
+</p>
+
+<div class="price">
+$250.000
+</div>
+
+</div>
+
+</div>
+
+<!-- PRODUCTO -->
 
 <div class="product-card">
 
@@ -603,31 +867,33 @@ Explora todos los productos de Medicampus.
 <h3>Smart Watch</h3>
 
 <p>
-Diseño elegante y moderno.
+Diseño futurista elegante.
 </p>
 
 <div class="price">
-$120.000
+$180.000
 </div>
 
 </div>
 
 </div>
+
+<!-- PRODUCTO -->
 
 <div class="product-card">
 
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
 
 <div class="product-info">
 
-<h3>Audífonos</h3>
+<h3>iPhone</h3>
 
 <p>
-Sonido premium.
+Potencia y rendimiento premium.
 </p>
 
 <div class="price">
-$85.000
+$3.500.000
 </div>
 
 </div>
@@ -642,8 +908,12 @@ $85.000
 
 </section>
 
-<!-- ================= SUBIR ================= -->
-<section id="subir" class="page">
+<!-- =======================================================
+     SUBIR
+======================================================= -->
+
+<section id="subir"
+class="page">
 
 <div class="hero">
 
@@ -674,8 +944,11 @@ type="text"
 id="productImage"
 placeholder="URL imagen">
 
-<button onclick="addProduct()">
+<button
+onclick="addProduct()">
+
 Agregar producto
+
 </button>
 
 </div>
@@ -686,8 +959,12 @@ Agregar producto
 
 </section>
 
-<!-- ================= NOSOTROS ================= -->
-<section id="nosotros" class="page">
+<!-- =======================================================
+     NOSOTROS
+======================================================= -->
+
+<section id="nosotros"
+class="page">
 
 <div class="hero">
 
@@ -698,8 +975,9 @@ NOSOTROS
 </h1>
 
 <p>
-Medicampus es una tienda moderna enfocada
-en diseño futurista y experiencia visual premium.
+Medicampus es una tienda moderna
+enfocada en diseño futurista y
+experiencia visual premium.
 </p>
 
 </div>
@@ -710,7 +988,9 @@ en diseño futurista y experiencia visual premium.
 
 <script>
 
-/* ================= CAMBIO DE PAGINA ================= */
+/* =======================================================
+   CAMBIO PAGINAS
+======================================================= */
 
 function showPage(id){
 
@@ -728,7 +1008,9 @@ function showPage(id){
 
 }
 
-/* ================= AGREGAR PRODUCTOS ================= */
+/* =======================================================
+   AGREGAR PRODUCTOS
+======================================================= */
 
 function addProduct(){
 
@@ -742,7 +1024,16 @@ function addProduct(){
   document.getElementById("productImage").value;
 
   const grid =
-  document.querySelector(".products-grid");
+  document.getElementById("productsGrid");
+
+  if(
+    name === "" ||
+    price === "" ||
+    image === ""
+  ){
+    alert("Completa todos los campos");
+    return;
+  }
 
   grid.innerHTML += `
 
@@ -764,9 +1055,18 @@ function addProduct(){
 
   `;
 
+  document.getElementById("productName").value = "";
+
+  document.getElementById("productPrice").value = "";
+
+  document.getElementById("productImage").value = "";
+
+  alert("Producto agregado");
+
 }
 
 </script>
 
 </body>
+
 </html>
