@@ -322,7 +322,101 @@ body{
   }
 
 }
+[8:50 p. m., 5/5/2026] 🩵: <!-- ================= SUBIR PRODUCTOS ================= -->
+<section id="subir" class="section">
 
+  <h2 class="section-title">
+    Subir Productos
+  </h2>
+
+  <div class="upload-box">
+
+    <input
+    type="text"
+    id="productName"
+    placeholder="Nombre del producto">
+
+    <input
+    type="text"
+    id="productPrice"
+    placeholder="Precio">
+
+    <input
+    type="text"
+    id="productImage"
+    placeholder="Link de la imagen">
+
+    <button onclick="addProduct()">
+      Agregar producto
+    </button>
+
+  </div>
+
+</section>
+[8:53 p. m., 5/5/2026] 🩵: /* ================= PANEL ROSADO ================= */
+.upload-box{
+
+  max-width:500px;
+
+  margin:auto;
+
+  background:
+  linear-gradient(135deg,#ff4fd8,#ff8fe2);
+
+  padding:30px;
+
+  border-radius:30px;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:15px;
+
+  box-shadow:
+  0 0 40px rgba(255,105,180,0.4);
+
+}
+
+.upload-box input{
+
+  padding:15px;
+
+  border:none;
+
+  border-radius:15px;
+
+  outline:none;
+
+  font-size:16px;
+
+}
+
+.upload-box button{
+
+  padding:15px;
+
+  border:none;
+
+  border-radius:15px;
+
+  background:white;
+
+  color:#ff2db2;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+}
+
+.upload-box button:hover{
+
+  transform:scale(1.03);
+
+}
+  
 </style>
 </head>
 
@@ -348,6 +442,9 @@ body{
     <span onclick="scrollToSection('nosotros')">
       Nosotros
     </span>
+    <span onclick="scrollToSection('subir')">
+  Subir
+</span>
 
   </div>
 
@@ -488,6 +585,37 @@ body{
 
 </section>
 
+  <!-- ================= SUBIR PRODUCTOS ================= -->
+<section id="subir" class="section">
+
+  <h2 class="section-title">
+    Subir Productos
+  </h2>
+
+  <div class="upload-box">
+
+    <input
+    type="text"
+    id="productName"
+    placeholder="Nombre del producto">
+
+    <input
+    type="text"
+    id="productPrice"
+    placeholder="Precio">
+
+    <input
+    type="text"
+    id="productImage"
+    placeholder="Link de la imagen">
+
+    <button onclick="addProduct()">
+      Agregar producto
+    </button>
+
+  </div>
+
+</section>
 <!-- ================= NOSOTROS ================= -->
 <section id="nosotros" class="section">
 
