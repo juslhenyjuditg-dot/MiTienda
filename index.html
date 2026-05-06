@@ -48,6 +48,7 @@ body{
 }
 
 @keyframes float{
+
   from{
     transform:translateY(100vh);
   }
@@ -55,12 +56,13 @@ body{
   to{
     transform:translateY(-100px);
   }
+
 }
 
 /* ================= NAV ================= */
 .nav{
   position:relative;
-  z-index:10;
+  z-index:100;
 
   display:flex;
   justify-content:space-between;
@@ -70,10 +72,12 @@ body{
 }
 
 .logo{
-  font-size:42px;
+  font-size:48px;
   font-weight:bold;
 
-  background:linear-gradient(90deg,#ff4fd8,#7d7dff,#00f0ff);
+  background:
+  linear-gradient(90deg,#ff4fd8,#7d7dff,#00f0ff);
+
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 
@@ -86,14 +90,39 @@ body{
 }
 
 .menu span{
+
   color:white;
-  text-decoration:none;
+
   opacity:.8;
+
   transition:.3s;
+
+  cursor:pointer;
+
+  font-size:18px;
+
 }
 
 .menu span:hover{
+
   color:#ff4fd8;
+
+}
+
+/* ================= PAGINAS ================= */
+.page{
+
+  display:none;
+
+  width:100%;
+  height:100vh;
+
+}
+
+.page.active{
+
+  display:flex;
+
 }
 
 /* ================= HERO ================= */
@@ -101,7 +130,7 @@ body{
   position:relative;
   z-index:10;
 
-  height:80vh;
+  width:100%;
 
   display:flex;
   justify-content:space-between;
@@ -130,6 +159,7 @@ body{
 
   text-shadow:
   0 0 30px rgba(255,0,140,.5);
+
 }
 
 .hero-text p{
@@ -141,6 +171,7 @@ body{
   opacity:.8;
 
   line-height:1.7;
+
 }
 
 /* ================= BOTON ================= */
@@ -178,7 +209,7 @@ body{
 
 }
 
-/* ================= VISUAL DERECHO ================= */
+/* ================= VISUAL ================= */
 .visual{
 
   position:relative;
@@ -192,7 +223,7 @@ body{
 
 }
 
-/* ================= TARJETA 3D ================= */
+/* ================= CARD 3D ================= */
 .card-3d{
 
   width:320px;
@@ -201,9 +232,11 @@ body{
   border-radius:35px;
 
   background:
-  linear-gradient(145deg,
+  linear-gradient(
+  145deg,
   rgba(255,255,255,.08),
-  rgba(255,255,255,.02));
+  rgba(255,255,255,.02)
+  );
 
   backdrop-filter:blur(20px);
 
@@ -222,7 +255,6 @@ body{
 
 }
 
-/* ================= BRILLO ================= */
 .card-3d::before{
 
   content:"";
@@ -243,7 +275,7 @@ body{
 
 }
 
-/* ================= PRODUCTOS FALSOS ================= */
+/* ================= MOCK PRODUCTS ================= */
 .mock-products{
 
   padding:30px;
@@ -264,16 +296,18 @@ body{
   border-radius:20px;
 
   background:
-  linear-gradient(145deg,
+  linear-gradient(
+  145deg,
   rgba(255,255,255,.12),
-  rgba(255,255,255,.04));
+  rgba(255,255,255,.04)
+  );
 
   border:
   1px solid rgba(255,255,255,.08);
 
 }
 
-/* ================= TEXTO CARD ================= */
+/* ================= TITULO CARD ================= */
 .mock-title{
 
   padding:25px;
@@ -282,6 +316,130 @@ body{
   font-weight:bold;
 
   color:#ff9de6;
+
+}
+
+/* ================= GRID PRODUCTOS ================= */
+.products-grid{
+
+  margin-top:40px;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fill,minmax(250px,1fr));
+
+  gap:25px;
+
+}
+
+/* ================= PRODUCT CARD ================= */
+.product-card{
+
+  background:
+  rgba(255,255,255,.05);
+
+  border:
+  1px solid rgba(255,255,255,.08);
+
+  border-radius:25px;
+
+  overflow:hidden;
+
+  transition:.3s;
+
+}
+
+.product-card:hover{
+
+  transform:
+  translateY(-8px);
+
+  box-shadow:
+  0 0 40px rgba(255,0,140,.2);
+
+}
+
+.product-card img{
+
+  width:100%;
+  height:220px;
+
+  object-fit:cover;
+
+}
+
+.product-info{
+
+  padding:20px;
+
+}
+
+.product-info h3{
+
+  color:#ff9de6;
+
+  margin-bottom:10px;
+
+}
+
+.price{
+
+  margin-top:15px;
+
+  font-size:24px;
+  font-weight:bold;
+
+}
+
+/* ================= UPLOAD ================= */
+.upload-box{
+
+  margin-top:40px;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:15px;
+
+  max-width:500px;
+
+}
+
+.upload-box input{
+
+  padding:18px;
+
+  border:none;
+
+  border-radius:15px;
+
+  background:
+  rgba(255,255,255,.08);
+
+  color:white;
+
+  font-size:16px;
+
+}
+
+.upload-box button{
+
+  padding:18px;
+
+  border:none;
+
+  border-radius:15px;
+
+  background:
+  linear-gradient(90deg,#ff4fd8,#ff7ce8);
+
+  color:white;
+
+  font-size:16px;
+  font-weight:bold;
+
+  cursor:pointer;
 
 }
 
@@ -324,23 +482,7 @@ body{
   }
 
 }
-/* ================= PAGES ================= */
 
-.page{
-
-  display:none;
-
-  width:100%;
-
-  height:100vh;
-
-}
-
-.page.active{
-
-  display:flex;
-
-}
 </style>
 </head>
 
@@ -366,24 +508,29 @@ body{
 
   <div class="menu">
 
-   <a href="#productos">
-  Productos
-</a>
+    <span onclick="showPage('inicio')">
+      Inicio
+    </span>
 
-<a href="#subir">
-  Subir
-</a>
+    <span onclick="showPage('productos')">
+      Productos
+    </span>
 
-<a href="#nosotros">
-  Nosotros
-</a>
+    <span onclick="showPage('subir')">
+      Subir
+    </span>
+
+    <span onclick="showPage('nosotros')">
+      Nosotros
+    </span>
 
   </div>
 
 </div>
 
-<!-- ================= HERO ================= -->
+<!-- ================= INICIO ================= -->
 <section id="inicio" class="page active hero">
+
   <div class="hero-text">
 
     <h1>
@@ -397,13 +544,16 @@ body{
       visual futurista para tu emprendimiento digital.
     </p>
 
-    <button class="hero-btn">
+    <button
+    class="hero-btn"
+    onclick="showPage('productos')">
+
       Explorar
+
     </button>
 
   </div>
 
-  <!-- ================= VISUAL ================= -->
   <div class="visual">
 
     <div class="card-3d">
@@ -426,6 +576,7 @@ body{
   </div>
 
 </section>
+
 <!-- ================= PRODUCTOS ================= -->
 <section id="productos" class="page">
 
@@ -438,8 +589,52 @@ PRODUCTOS
 </h1>
 
 <p>
-Aquí aparecerán los productos de tu tienda.
+Explora todos los productos de Medicampus.
 </p>
+
+<div class="products-grid">
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
+
+<div class="product-info">
+
+<h3>Smart Watch</h3>
+
+<p>
+Diseño elegante y moderno.
+</p>
+
+<div class="price">
+$120.000
+</div>
+
+</div>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
+
+<div class="product-info">
+
+<h3>Audífonos</h3>
+
+<p>
+Sonido premium.
+</p>
+
+<div class="price">
+$85.000
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -459,8 +654,31 @@ SUBIR
 </h1>
 
 <p>
-Aquí subirás productos.
+Agrega nuevos productos a Medicampus.
 </p>
+
+<div class="upload-box">
+
+<input
+type="text"
+id="productName"
+placeholder="Nombre del producto">
+
+<input
+type="text"
+id="productPrice"
+placeholder="Precio">
+
+<input
+type="text"
+id="productImage"
+placeholder="URL imagen">
+
+<button onclick="addProduct()">
+Agregar producto
+</button>
+
+</div>
 
 </div>
 
@@ -480,7 +698,8 @@ NOSOTROS
 </h1>
 
 <p>
-Información de Medicampus.
+Medicampus es una tienda moderna enfocada
+en diseño futurista y experiencia visual premium.
 </p>
 
 </div>
@@ -488,7 +707,10 @@ Información de Medicampus.
 </div>
 
 </section>
-  <script>
+
+<script>
+
+/* ================= CAMBIO DE PAGINA ================= */
 
 function showPage(id){
 
@@ -506,6 +728,45 @@ function showPage(id){
 
 }
 
+/* ================= AGREGAR PRODUCTOS ================= */
+
+function addProduct(){
+
+  const name =
+  document.getElementById("productName").value;
+
+  const price =
+  document.getElementById("productPrice").value;
+
+  const image =
+  document.getElementById("productImage").value;
+
+  const grid =
+  document.querySelector(".products-grid");
+
+  grid.innerHTML += `
+
+  <div class="product-card">
+
+    <img src="${image}">
+
+    <div class="product-info">
+
+      <h3>${name}</h3>
+
+      <div class="price">
+        ${price}
+      </div>
+
+    </div>
+
+  </div>
+
+  `;
+
+}
+
 </script>
+
 </body>
 </html>
