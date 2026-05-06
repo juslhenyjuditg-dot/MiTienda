@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Medicampus Store</title>
+<title>Medicampus</title>
 
 <style>
 
@@ -14,568 +14,395 @@
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
+body{
+  font-family:Arial,sans-serif;
+  overflow:hidden;
+  background:
+  linear-gradient(135deg,#050816,#090018,#130022);
+  color:white;
+  height:100vh;
 }
 
-body{
-  font-family:Arial, sans-serif;
+/* ================= FONDO ================= */
+.bg{
+  position:absolute;
+  inset:0;
+
   background:
-  radial-gradient(circle at top left,#1a0033,#000);
-  color:white;
-  overflow-x:hidden;
+  radial-gradient(circle at 20% 20%, rgba(255,0,140,.18), transparent 30%),
+  radial-gradient(circle at 80% 30%, rgba(0,255,255,.12), transparent 30%),
+  radial-gradient(circle at 50% 80%, rgba(140,0,255,.15), transparent 30%);
+
+  z-index:0;
+}
+
+/* ================= PARTICULAS ================= */
+.particle{
+  position:absolute;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:#ff4fd8;
+  opacity:.5;
+  animation:float 8s linear infinite;
+}
+
+@keyframes float{
+  from{
+    transform:translateY(100vh);
+  }
+
+  to{
+    transform:translateY(-100px);
+  }
 }
 
 /* ================= NAV ================= */
 .nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
+  position:relative;
+  z-index:10;
 
   display:flex;
   justify-content:space-between;
   align-items:center;
 
-  padding:20px 40px;
-
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(10px);
+  padding:25px 60px;
 }
 
 .logo{
-  font-size:28px;
+  font-size:42px;
   font-weight:bold;
-  color:#b7ff00;
+
+  background:linear-gradient(90deg,#ff4fd8,#7d7dff,#00f0ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  letter-spacing:2px;
 }
 
 .menu{
   display:flex;
-  gap:25px;
+  gap:30px;
 }
 
-.menu span{
-  cursor:pointer;
-  transition:0.3s;
+.menu a{
+  color:white;
+  text-decoration:none;
+  opacity:.8;
+  transition:.3s;
 }
 
-.menu span:hover{
-  color:#b7ff00;
+.menu a:hover{
+  color:#ff4fd8;
 }
 
 /* ================= HERO ================= */
 .hero{
-  min-height:90vh;
+  position:relative;
+  z-index:10;
+
+  height:80vh;
 
   display:flex;
   justify-content:space-between;
   align-items:center;
 
-  padding:60px;
-  gap:50px;
+  padding:0 80px;
 }
 
+/* ================= TEXTO ================= */
 .hero-text{
   max-width:650px;
 }
 
 .hero-text h1{
-  font-size:75px;
-  line-height:1.1;
+  font-size:110px;
+  line-height:0.95;
 }
 
 .hero-text span{
-  color:#b7ff00;
-  text-shadow:0 0 20px #b7ff00;
+
+  background:
+  linear-gradient(90deg,#ff4fd8,#ff9de6);
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  text-shadow:
+  0 0 30px rgba(255,0,140,.5);
 }
 
 .hero-text p{
-  margin-top:20px;
-  font-size:18px;
-  line-height:1.7;
-  opacity:0.85;
-}
 
-.hero-btn{
   margin-top:30px;
 
-  padding:15px 35px;
+  font-size:22px;
+
+  opacity:.8;
+
+  line-height:1.7;
+}
+
+/* ================= BOTON ================= */
+.hero-btn{
+
+  margin-top:35px;
+
+  padding:18px 40px;
 
   border:none;
-  border-radius:30px;
+  border-radius:18px;
 
-  background:#b7ff00;
-  color:black;
+  background:
+  linear-gradient(90deg,#ff4fd8,#ff7ce8);
 
-  font-size:16px;
+  color:white;
+
+  font-size:18px;
   font-weight:bold;
 
   cursor:pointer;
 
-  transition:0.3s;
+  transition:.3s;
+
+  box-shadow:
+  0 0 30px rgba(255,0,140,.35);
+
 }
 
 .hero-btn:hover{
-  transform:scale(1.05);
-}
 
-/* ================= CIRCULO ================= */
-.circle{
-  width:320px;
-  height:320px;
-
-  border-radius:50%;
-
-  background:
-  radial-gradient(circle,#b7ff00,#000);
-
-  box-shadow:0 0 100px #b7ff00;
-
-  animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-
-  from{
-    box-shadow:0 0 40px #b7ff00;
-  }
-
-  to{
-    box-shadow:0 0 120px #b7ff00;
-  }
-
-}
-
-/* ================= SECCIONES ================= */
-.section{
-  padding:70px 50px;
-}
-
-.section-title{
-  font-size:45px;
-  margin-bottom:40px;
-  color:#b7ff00;
-}
-
-/* ================= GRID ================= */
-.grid{
-  display:grid;
-
-  grid-template-columns:
-  repeat(auto-fill,minmax(280px,1fr));
-
-  gap:30px;
-}
-
-/* ================= CARD ================= */
-.card{
-  background:#111;
-
-  border-radius:20px;
-
-  overflow:hidden;
-
-  transition:0.4s;
-}
-
-.card:hover{
   transform:
-  translateY(-10px)
+  translateY(-5px)
   scale(1.03);
 
-  box-shadow:
-  0 0 30px rgba(183,255,0,0.3);
 }
 
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
+/* ================= VISUAL DERECHO ================= */
+.visual{
 
-.card-content{
-  padding:20px;
-}
+  position:relative;
 
-.card-content h3{
-  color:#b7ff00;
-  margin-bottom:10px;
-}
-
-.card-content p{
-  line-height:1.6;
-  opacity:0.8;
-}
-
-.price{
-  margin-top:15px;
-
-  font-size:28px;
-  font-weight:bold;
-}
-
-.buy-btn{
-  margin-top:20px;
-
-  width:100%;
-
-  padding:14px;
-
-  border:none;
-  border-radius:15px;
-
-  background:#b7ff00;
-  color:black;
-
-  font-weight:bold;
-
-  cursor:pointer;
-
-  transition:0.3s;
-}
-
-.buy-btn:hover{
-  transform:scale(1.03);
-}
-
-/* ================= NOSOTROS ================= */
-.about{
-  max-width:900px;
-
-  line-height:1.8;
-
-  opacity:0.9;
-}
-
-/* ================= FOOTER ================= */
-.footer{
-  text-align:center;
-  padding:30px;
-  opacity:0.6;
-}
-
-/* ================= WHATSAPP ================= */
-.whatsapp{
-  position:fixed;
-
-  right:20px;
-  bottom:20px;
-
-  width:65px;
-  height:65px;
-
-  border-radius:50%;
-
-  background:#25d366;
+  width:420px;
+  height:420px;
 
   display:flex;
   justify-content:center;
   align-items:center;
 
-  font-size:35px;
+}
 
-  text-decoration:none;
+/* ================= TARJETA 3D ================= */
+.card-3d{
 
-  box-shadow:0 0 20px rgba(0,0,0,0.4);
+  width:320px;
+  height:380px;
 
-  z-index:999;
+  border-radius:35px;
+
+  background:
+  linear-gradient(145deg,
+  rgba(255,255,255,.08),
+  rgba(255,255,255,.02));
+
+  backdrop-filter:blur(20px);
+
+  border:
+  1px solid rgba(255,255,255,.1);
+
+  box-shadow:
+  0 0 60px rgba(255,0,140,.25);
+
+  transform:
+  rotate(-10deg);
+
+  overflow:hidden;
+
+  position:relative;
+
+}
+
+/* ================= BRILLO ================= */
+.card-3d::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:180px;
+  height:500px;
+
+  background:
+  rgba(255,255,255,.12);
+
+  transform:
+  rotate(25deg);
+
+  left:-100px;
+  top:-80px;
+
+}
+
+/* ================= PRODUCTOS FALSOS ================= */
+.mock-products{
+
+  padding:30px;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:20px;
+
+}
+
+.mock-box{
+
+  height:110px;
+
+  border-radius:20px;
+
+  background:
+  linear-gradient(145deg,
+  rgba(255,255,255,.12),
+  rgba(255,255,255,.04));
+
+  border:
+  1px solid rgba(255,255,255,.08);
+
+}
+
+/* ================= TEXTO CARD ================= */
+.mock-title{
+
+  padding:25px;
+
+  font-size:22px;
+  font-weight:bold;
+
+  color:#ff9de6;
+
 }
 
 /* ================= RESPONSIVE ================= */
-@media(max-width:768px){
+@media(max-width:900px){
 
-  .nav{
-    flex-direction:column;
-    gap:15px;
-    text-align:center;
-  }
-
-  .menu{
-    flex-wrap:wrap;
-    justify-content:center;
+  body{
+    overflow:auto;
   }
 
   .hero{
     flex-direction:column;
+    justify-content:center;
     text-align:center;
+
     padding:40px 20px;
+
+    gap:50px;
   }
 
   .hero-text h1{
-    font-size:45px;
+    font-size:65px;
   }
 
   .hero-text p{
-    font-size:16px;
+    font-size:18px;
   }
 
-  .circle{
-    width:180px;
-    height:180px;
+  .logo{
+    font-size:32px;
   }
 
-  .section{
-    padding:50px 20px;
+  .nav{
+    flex-direction:column;
+    gap:20px;
   }
 
-  .section-title{
-    font-size:35px;
+  .visual{
+    width:100%;
   }
 
 }
-[8:50 p. m., 5/5/2026] 🩵: <!-- ================= SUBIR PRODUCTOS ================= -->
-<section id="subir" class="section">
 
-  <h2 class="section-title">
-    Subir Productos
-  </h2>
-
-  <div class="upload-box">
-
-    <input
-    type="text"
-    id="productName"
-    placeholder="Nombre del producto">
-
-    <input
-    type="text"
-    id="productPrice"
-    placeholder="Precio">
-
-    <input
-    type="text"
-    id="productImage"
-    placeholder="Link de la imagen">
-
-    <button onclick="addProduct()">
-      Agregar producto
-    </button>
-
-  </div>
-
-</section>
-[8:53 p. m., 5/5/2026] 🩵: /* ================= PANEL ROSADO ================= */
-.upload-box{
-
-  max-width:500px;
-
-  margin:auto;
-
-  background:
-  linear-gradient(135deg,#ff4fd8,#ff8fe2);
-
-  padding:30px;
-
-  border-radius:30px;
-
-  display:flex;
-  flex-direction:column;
-
-  gap:15px;
-
-  box-shadow:
-  0 0 40px rgba(255,105,180,0.4);
-
-}
-
-.upload-box input{
-
-  padding:15px;
-
-  border:none;
-
-  border-radius:15px;
-
-  outline:none;
-
-  font-size:16px;
-
-}
-
-.upload-box button{
-
-  padding:15px;
-
-  border:none;
-
-  border-radius:15px;
-
-  background:white;
-
-  color:#ff2db2;
-
-  font-weight:bold;
-
-  cursor:pointer;
-
-  transition:0.3s;
-
-}
-
-.upload-box button:hover{
-
-  transform:scale(1.03);
-
-}
-  
 </style>
 </head>
 
 <body>
 
+<!-- ================= FONDO ================= -->
+<div class="bg"></div>
+
+<!-- ================= PARTICULAS ================= -->
+<div class="particle" style="left:10%;animation-duration:9s;"></div>
+<div class="particle" style="left:20%;animation-duration:7s;"></div>
+<div class="particle" style="left:35%;animation-duration:11s;"></div>
+<div class="particle" style="left:50%;animation-duration:6s;"></div>
+<div class="particle" style="left:65%;animation-duration:10s;"></div>
+<div class="particle" style="left:80%;animation-duration:8s;"></div>
+
 <!-- ================= NAV ================= -->
 <div class="nav">
 
   <div class="logo">
-    🛍️ Medicampus
+    Medicampus
   </div>
 
   <div class="menu">
 
-    <span onclick="scrollToSection('inicio')">
-      Inicio
-    </span>
-
-    <span onclick="scrollToSection('productos')">
+    <a href="productos.html">
       Productos
-    </span>
+    </a>
 
-    <span onclick="scrollToSection('nosotros')">
+    <a href="subir.html">
+      Subir
+    </a>
+
+    <a href="nosotros.html">
       Nosotros
-    </span>
-    <span onclick="scrollToSection('subir')">
-  Subir
-</span>
+    </a>
 
   </div>
 
 </div>
 
 <!-- ================= HERO ================= -->
-<section id="inicio" class="hero">
+<section class="hero">
 
   <div class="hero-text">
 
     <h1>
       TU TIENDA
+      <br>
       <span>ONLINE</span>
     </h1>
 
     <p>
-      Productos modernos, organizados y visualmente atractivos
-      para tu emprendimiento digital.
+      Diseño moderno, productos organizados y una experiencia
+      visual futurista para tu emprendimiento digital.
     </p>
 
-    <button
-    class="hero-btn"
-    onclick="scrollToSection('productos')">
-
-      Ver productos
-
+    <button class="hero-btn">
+      Explorar
     </button>
 
   </div>
 
-  <div class="circle"></div>
+  <!-- ================= VISUAL ================= -->
+  <div class="visual">
 
-</section>
+    <div class="card-3d">
 
-<!-- ================= PRODUCTOS ================= -->
-<section id="productos" class="section">
-
-  <h2 class="section-title">
-    Productos
-  </h2>
-
-  <div class="grid">
-
-    <!-- PRODUCTO -->
-    <div class="card">
-
-      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
-
-      <div class="card-content">
-
-        <h3>
-          Smart Watch
-        </h3>
-
-        <p>
-          Diseño elegante y moderno.
-        </p>
-
-        <div class="price">
-          $120.000
-        </div>
-
-        <button
-        class="buy-btn"
-        onclick="buyNow('Smart Watch')">
-
-          Comprar
-
-        </button>
-
+      <div class="mock-title">
+        Medicampus Store
       </div>
 
-    </div>
+      <div class="mock-products">
 
-    <!-- PRODUCTO -->
-    <div class="card">
-
-      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
-
-      <div class="card-content">
-
-        <h3>
-          Audífonos
-        </h3>
-
-        <p>
-          Sonido premium y batería duradera.
-        </p>
-
-        <div class="price">
-          $85.000
-        </div>
-
-        <button
-        class="buy-btn"
-        onclick="buyNow('Audífonos')">
-
-          Comprar
-
-        </button>
-
-      </div>
-
-    </div>
-
-    <!-- PRODUCTO -->
-    <div class="card">
-
-      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
-
-      <div class="card-content">
-
-        <h3>
-          Smartphone
-        </h3>
-
-        <p>
-          Tecnología avanzada y alto rendimiento.
-        </p>
-
-        <div class="price">
-          $950.000
-        </div>
-
-        <button
-        class="buy-btn"
-        onclick="buyNow('Smartphone')">
-
-          Comprar
-
-        </button>
+        <div class="mock-box"></div>
+        <div class="mock-box"></div>
+        <div class="mock-box"></div>
+        <div class="mock-box"></div>
 
       </div>
 
@@ -584,110 +411,6 @@ body{
   </div>
 
 </section>
-
-  <!-- ================= SUBIR PRODUCTOS ================= -->
-<section id="subir" class="section">
-
-  <h2 class="section-title">
-    Subir Productos
-  </h2>
-
-  <div class="upload-box">
-
-    <input
-    type="text"
-    id="productName"
-    placeholder="Nombre del producto">
-
-    <input
-    type="text"
-    id="productPrice"
-    placeholder="Precio">
-
-    <input
-    type="text"
-    id="productImage"
-    placeholder="Link de la imagen">
-
-    <button onclick="addProduct()">
-      Agregar producto
-    </button>
-
-  </div>
-
-</section>
-<!-- ================= NOSOTROS ================= -->
-<section id="nosotros" class="section">
-
-  <h2 class="section-title">
-    Nosotros
-  </h2>
-
-  <div class="about">
-
-    <p>
-      Medicampus es una tienda online enfocada en ofrecer productos
-      modernos, útiles y accesibles mediante una experiencia visual
-      atractiva y organizada.
-    </p>
-
-    <br>
-
-    <p>
-      Nuestro objetivo es brindar una experiencia de compra rápida,
-      sencilla y moderna desde cualquier dispositivo.
-    </p>
-
-  </div>
-
-</section>
-
-<!-- ================= FOOTER ================= -->
-<div class="footer">
-
-  © 2026 Medicampus
-
-</div>
-
-<!-- ================= WHATSAPP ================= -->
-<a
-class="whatsapp"
-href="https://wa.me/573001234567"
-target="_blank">
-
-  💬
-
-</a>
-
-<script>
-
-/* ================= SCROLL ================= */
-function scrollToSection(id){
-
-  document
-  .getElementById(id)
-  .scrollIntoView({
-    behavior:"smooth"
-  });
-
-}
-
-/* ================= WHATSAPP ================= */
-function buyNow(product){
-
-  const number = "573001234567";
-
-  const message =
-  `Hola, quiero comprar: ${product}`;
-
-  const url =
-  `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
-
-  window.open(url,"_blank");
-
-}
-
-</script>
 
 </body>
 </html>
