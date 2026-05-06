@@ -689,6 +689,53 @@ body{
 
 }
 
+/* =======================================================
+   CARRITO
+======================================================= */
+
+.cart-box{
+
+margin-top:40px;
+
+padding:30px;
+
+border-radius:25px;
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+}
+
+.cart-btn{
+
+margin-top:20px;
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:15px;
+
+background:
+linear-gradient(
+90deg,
+#ff4fd8,
+#ff7ce8
+);
+
+color:white;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+   
 </style>
 
 </head>
@@ -834,50 +881,33 @@ Explora todos los productos de Medicampus.
 <div class="products-grid"
 id="productsGrid">
 
-<!-- PRODUCTO -->
+</div>
 
-<div class="product-card">
+<div class="cart-box">
 
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
+<h2>
+🛒 Carrito
+</h2>
 
-<div class="product-info">
-
-<h3>AirPods Pro</h3>
+<div id="cartItems">
 
 <p>
-Audio premium inalámbrico.
+No hay productos agregados.
 </p>
 
-<div class="price">
-$250.000
+</div>
+
+<h3 id="cartTotal">
+Total: $0
+</h3>
+
 </div>
 
 </div>
 
 </div>
 
-<!-- PRODUCTO -->
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
-
-<div class="product-info">
-
-<h3>Smart Watch</h3>
-
-<p>
-Diseño futurista elegante.
-</p>
-
-<div class="price">
-$180.000
-</div>
-
-</div>
-
-</div>
-
+</section>
 <!-- PRODUCTO -->
 
 <div class="product-card">
@@ -943,6 +973,11 @@ placeholder="Precio">
 type="text"
 id="productImage"
 placeholder="URL imagen">
+
+   <input
+type="text"
+id="productDesc"
+placeholder="Descripción del producto">
 
 <button
 onclick="addProduct()">
@@ -1023,6 +1058,9 @@ function addProduct(){
   const image =
   document.getElementById("productImage").value;
 
+   const desc =
+document.getElementById("productDesc").value;
+
   const grid =
   document.getElementById("productsGrid");
 
@@ -1035,25 +1073,39 @@ function addProduct(){
     return;
   }
 
-  grid.innerHTML += `
+ grid.innerHTML += `
 
-  <div class="product-card">
+<div class="product-card">
 
-    <img src="${image}">
+<img src="${image}">
 
-    <div class="product-info">
+<div class="product-info">
 
-      <h3>${name}</h3>
+<h3>
+${name}
+</h3>
 
-      <div class="price">
-        ${price}
-      </div>
+<p>
+${desc}
+</p>
 
-    </div>
+<div class="price">
+${price}
+</div>
 
-  </div>
+<button
+class="cart-btn"
+onclick="addToCart('${name}','${price}')">
 
-  `;
+Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+`;
 
   document.getElementById("productName").value = "";
 
@@ -1062,8 +1114,44 @@ function addProduct(){
   document.getElementById("productImage").value = "";
 
   alert("Producto agregado");
+document.getElementById("productDesc").value = "";
+}
+
+let total = 0;
+
+function addToCart(name,price){
+
+const cart =
+document.getElementById("cartItems");
+
+const number =
+parseInt(
+price.replace(/\D/g,'')
+);
+
+total += number;
+
+cart.innerHTML += `
+
+<div style="
+margin-top:15px;
+padding:10px;
+background:rgba(255,255,255,.05);
+border-radius:10px;
+">
+
+${name} - ${price}
+
+</div>
+
+`;
+
+document.getElementById("cartTotal")
+.innerText =
+"Total: $" + total.toLocaleString();
 
 }
+   
 
 </script>
 
